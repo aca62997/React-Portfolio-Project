@@ -2,8 +2,16 @@ import React, { Component } from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
 import Directory from "./components/DirectoryComponents";
 import "./App.css";
+import { BAKERIES } from "./shared/bakeries";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      bakeries: BAKERIES,
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,7 +20,7 @@ class App extends Component {
             <NavbarBrand href="/">Amanda's Pastry Shop</NavbarBrand>
           </div>
         </Navbar>
-        <Directory />
+        <Directory bakeries={this.state.bakeries} />
       </div>
     );
   }
