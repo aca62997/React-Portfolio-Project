@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
-import Directory from "./DirectoryComponent";
+import Directory from "./DirectoryComponents";
 import BakeryInfo from "./BakeryInfoComponents";
 import { BAKERIES } from "../shared/bakeries";
-
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       bakeries: BAKERIES,
-      selectedBakery: null,
+      selectedBakery: null
     };
   }
 
   onBakerySelect(bakeryId) {
-    this.setState({ selectedBakery: bakeryId });
-  }
+        this.setState({selectedBakery: bakeryId});
+    }
 
   render() {
     return (
@@ -32,14 +31,14 @@ class Main extends Component {
         />
         <BakeryInfo
           bakery={
-            this.state.bakery.filter(
+            this.state.bakeries.filter(
               (bakery) => bakery.id === this.state.selectedBakery
             )[0]
           }
         />
       </div>
     );
-    };
+  }
 }
 
 export default Main;
