@@ -1,19 +1,7 @@
-import React, { Component } from "react";
-import {
-  Card,
-  CardImg,
-  CardImgOverlay,
-  CardText,
-  CardBody,
-  CardTitle,
-} from "reactstrap";
+import React from 'react';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class BakeryInfo extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  renderBakery(bakery) {
+function RenderBakery({bakery}) {
     return (
       <div className="col-md-5 m-1">
         <Card>
@@ -27,7 +15,7 @@ class BakeryInfo extends Component {
     );
   }
 
-  renderComments(comments) {
+  function RenderComments({comments}) {
     if (comments) {
       return (
         <div class="col-md-5 m-1">
@@ -53,19 +41,18 @@ class BakeryInfo extends Component {
     }
   }
 
-  render() {
-    if (this.props.bakery) {
-      console.log("This is working");
+  function BakeryInfo(props) {
+    if (props.bakery) {
       return (
-        <div class="row">
-          {this.renderBakery(this.props.bakery)}
-          {this.renderBakery(this.props.bakery.comments)}
+        <div className="container">
+          <div className="row">
+            <RenderBakery bakery={props.bakery} />
+            <RenderComments comments={props.bakery.comments} />
+          </div>
         </div>
       );
-    } else {
-      return <div></div>;
     }
+    return <div />;
   }
-}
 
-export default BakeryInfo;
+  export default BakeryInfo;
