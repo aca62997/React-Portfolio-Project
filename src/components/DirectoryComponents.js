@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import BakeryInfo from "./BakeryInfoComponents";
 
 class Directory extends Component {
   constructor(props) {
@@ -45,11 +46,7 @@ class Directory extends Component {
     return (
       <div className="container">
         <div className="row">{directory}</div>
-        <div className="row">
-          <div className="col-md-5 m-1">
-            {this.renderSelectedBakery(this.state.selectedBakery)}
-          </div>
-        </div>
+        <BakeryInfo bakery={this.state.selectedBakery} />
       </div>
     );
   }
