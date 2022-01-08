@@ -1,5 +1,13 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  Breadcrumb,
+  BreadcrumbItem,
+} from "reactstrap";
+import { Link } from "react-router-dom";
 
 function RenderBakery({bakery}) {
     return (
@@ -7,7 +15,6 @@ function RenderBakery({bakery}) {
         <Card>
           <CardImg top src={bakery.image} alt={bakery.name} />
           <CardBody>
-            <CardTitle>{bakery.name}</CardTitle>
             <CardText>{bakery.description}</CardText>
           </CardBody>
         </Card>
@@ -45,6 +52,18 @@ function RenderBakery({bakery}) {
     if (props.bakery) {
       return (
         <div className="container">
+          <div className="row">
+            <div className="col">
+              <Breadcrumb>
+                <BreadcrumbItem>
+                  <Link to="/directory">Menu</Link>
+                </BreadcrumbItem>
+                <BreadcrumbItem active>{props.bakery.name}</BreadcrumbItem>
+              </Breadcrumb>
+              <h2>{props.bakery.name}</h2>
+              <hr />
+            </div>
+          </div>
           <div className="row">
             <RenderBakery bakery={props.bakery} />
             <RenderComments comments={props.comments} />
