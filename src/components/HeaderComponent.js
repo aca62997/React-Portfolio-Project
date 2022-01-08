@@ -16,7 +16,7 @@ class Header extends Component {
           </div>
         </Jumbotron>
 
-        <Navbar dark sticky="top">
+        <Navbar dark sticky={"top"}>
           <div className="container">
             <NavbarBrand href="/">Amanda's Pastry Shop</NavbarBrand>
           </div>

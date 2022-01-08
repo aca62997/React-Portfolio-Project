@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand } from "reactstrap";
-import Directory from "./DirectoryComponents";
-import BakeryInfo from "./BakeryInfoComponents";
+import Directory from "./DirectoryComponent";
+import BakeryInfo from "./BakeryInfoComponent";
+import Header from "./HeaderComponent";
+import Footer from "./FooterComponent";
 import { BAKERIES } from "../shared/bakeries";
 
 class Main extends Component {
@@ -20,11 +21,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar dark color="danger">
-          <div className="container">
-            <NavbarBrand href="/">Amanda's Pastry Shop</NavbarBrand>
-          </div>
-        </Navbar>
+        <Header />
         <Directory
           bakeries={this.state.bakeries}
           onClick={(bakeryId) => this.onBakerySelect(bakeryId)}
@@ -36,6 +33,7 @@ class Main extends Component {
             )[0]
           }
         />
+        <Footer />
       </div>
     );
   }
