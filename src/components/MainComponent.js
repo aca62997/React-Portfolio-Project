@@ -7,6 +7,7 @@ import { BAKERIES } from "../shared/bakeries";
 import Menu from "./HomeComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Contact from "./ContactComponent";
+import About from "./AboutComponent";
 
 class Main extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ class Main extends Component {
           />
           <Route exact path="/contactus" component={Contact} />
           <Route path="/directory/:bakeryId" component={BakeryWithId} />
+          
           <Redirect to="/home" />
           <Directory bakeries={this.state.bakeries} />
         </Switch>
