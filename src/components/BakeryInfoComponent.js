@@ -47,7 +47,7 @@ function RenderBakery({bakery}) {
         <div className="container">
           <div className="row">
             <RenderBakery bakery={props.bakery} />
-            <RenderComments comments={props.bakery.comments} />
+            <RenderComments comments={props.comments} />
           </div>
         </div>
       );
